@@ -61,11 +61,27 @@ $ pwd
 ```
 
 - run 'ls' - list command to see contents of the directory
+```
+$ ls
+Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
+```
 - mkdir (makes a directory).
-- You can create parent and children directories at the same time
-
+```
+$ mkdir someDir
+```
+- You can create parent and children directories at the same time.  Use a '-p' switch with mkdir to make a new dir weith a child directory.
+```
+$ mkdir anotherDir/childDir -p
+```
 - To move a up a directory type 'cd ..'
+```
+$ cd ..
+```
 - To return to your home directory, type 'cd ~'
+```
+[pslucas@ns02 /]$ cd ~
+[pslucas@ns02 ~]$ 
+```
 
 - Absolute path is a path that starts from the root directory
 - Relative path is 'relative' to the current path
