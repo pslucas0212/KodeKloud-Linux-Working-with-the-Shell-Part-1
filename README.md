@@ -387,7 +387,7 @@ $ PS1='[\d]\u@\h:\w$'
 echo 'PS1="[\d]\u@\h:\w$"' >> ~/.profile
 ```
 
-- To make environment variables persistent add them to the '~/.profile or ~/.pam_enviroment' file.
+- To make environment variables persistent add them to the '~/.profile (debian) or ~/.pam_enviroment' or ~/.bash_profile (Red Hat) file.
 
 - Check if location can be found for a program.  If it can't be found, add to the path.
 ```
