@@ -8,7 +8,10 @@ The Linux shell is a prorgam interface between the user and computer.  When you 
 ```
 /home/<user name>
 ```
-The home directory is denoted by a ~ symbol.  The ~ represents the home directory
+On the commnand lin promte, the home directory is denoted by a ~ symbol.  The ~ represents the home directory
+```
+[pslucas@ns02 ~]$
+```
 
 - On the command line you enter a command like the "echo" command.  Commands take arguements.  The echo command takes a string text as an argument
 ```
