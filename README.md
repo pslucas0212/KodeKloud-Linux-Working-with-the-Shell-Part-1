@@ -147,10 +147,10 @@ $ touch hello.txt
 
 - more loads the entire file at one time.  And this may be slow if the file is large
 
-more commands | result
+more Command | Result
 --------------|-------
 Space Bar | Scrolls text one display at a time
-Enger key | Scrolls one line at a time
+Enter key | Scrolls one line at a time
 b key | Scrolls backwards one screen at a time
 / key | Search for text in the file
 q key | Quits more
@@ -261,14 +261,41 @@ DESCRIPTION
        too.
 ...
 ```
+You can use the following 'more' commands to navigate through a man page
+more Command | Result
+--------------|-------
+Space Bar | Scrolls text one display at a time
+Enter key | Scrolls one line at a time
+b key | Scrolls backwards one screen at a time
+/ key | Search for text in the file
+q key | Quits more
+
 - Most commands have buit-in help use the '--help' option with the command
 ```
 $ date --help
+Usage: date [OPTION]... [+FORMAT]
+  or:  date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+Display the current time in the given FORMAT, or set the system date.
+...
+
 ```
 - Use 'apropos' along with the command as the argument to find all man page with references to the command
+- From Debian..
 ```
 $ apropos date
+arm-linux-gnueabihf-elfedit (1) - Update the ELF header of ELF files.
+asctime (3)          - transform date and time to broken-down time or ASCII
+asctime_r (3)        - transform date and time to broken-down time or ASCII
+cal (1)              - displays a calendar and the date of Easter
+catman (8)           - create or update the pre-formatted manual pages
+...
 ```
+- Example from RHEL 8
+```
+$ apropos date
+date: nothing appropriate.
+```
+
 ### Linux Shells
 - Bourne Shell (sh) developed in 70s for uniux
 - C Shell (csh or tcsh)
