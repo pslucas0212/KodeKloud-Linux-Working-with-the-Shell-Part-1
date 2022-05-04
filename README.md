@@ -15,7 +15,7 @@ On the commnand lin promte, the home directory is denoted by a ~ symbol.  The ~ 
 
 - On the command line you enter a command like the "echo" command.  Commands take arguements.  The echo command takes a string text as an argument
 ```
-$ echo 'Hello World!;
+$ echo 'Hello World!'
 ```
 - Some commands do not need an argument like the "uptime" command which shows how long the system has been running
 - Some commands take a switch or a flag to modify the command
