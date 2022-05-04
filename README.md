@@ -4,7 +4,7 @@
 
 
 ### Linux Command line
-The Linux shell is a prorgam interface between the user and computer.  When you login you are taken to computer generated directory known as the home directory.  Located under:
+The Linux shell is a prorgam interface between the user and computer.  When you login you are taken to a computer generated directory known as the home directory.  This is users home folder or directory which is located under /home:
 ```
 /home/<user name>
 ```
