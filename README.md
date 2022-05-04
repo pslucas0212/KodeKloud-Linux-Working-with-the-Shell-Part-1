@@ -84,16 +84,34 @@ $ cd ..
 ```
 
 - Absolute path is a path that starts from the root directory
+```
+$ ls /home/pslucas/someDir/
+```
 - Relative path is 'relative' to the current path
+```
+$ ls someDir
+```
 
 - you can also use the 'pushd' command to change a directory
 - Use the 'popd' command to go back to the starting directory
+```
+[pslucas@ns02 /]$ pushd /home/pslucas/
+~ /
+[pslucas@ns02 ~]$ cd someDir/
+[pslucas@ns02 someDir]$ cd childDir/
+[pslucas@ns02 childDir]$ popd
+/
+[pslucas@ns02 /]$ 
+```
 
 - To move a file or directory use the 'mv' move command.  Used two arguements with the mv command: source and target directories
 ```
 $ mv <source directory> <target directory>
 ```
 - You move files and directories with either absolute or relative paths
+```
+$ mv textToMove.txt someDir/childDir/
+```
 - We can use the 'mv' file to rename files or direcories
 ```
 $ mv paulfile.txt to bobfile.txt
@@ -101,14 +119,14 @@ $ mv paulfile.txt to bobfile.txt
 
 - Use the 'cp' command to copy files
 ```
-$ cp /home/bob/bobvilet.txt '/home/paul/'
+$ cp /home/bob/bobfilet.txt '/home/paul/'
 ```
 
-- Remove a file or directory with 'rm' remove command
+- Remove a file or directory with 'rm' remove command.  Note be careful with 'rm -r' as removes through the directory and below recursviley.
 
-- Use 'cp -r' recuresively copy files
+- Also you can use -r to recurseviley do other activities.  For example use 'cp -r' recuresively copy files
 
-- You can read the contents of file with the 'cat' of concatenate file
+- You can read the contents of file with the 'cat' command (concatenate).
 ```
 $ cat bobfile.txt
 ```
@@ -117,7 +135,7 @@ $ cat bobfile.txt
 ```
 $ cat > newfile.txt
 Type something here
-Type more and with finished type Ctrl-d to write this file out.
+Type more text here, and when you are finished adding test to the file, type Ctrl-d to write this file out.
 ```
 
 - To create an empty file use the 'touch' command
@@ -125,7 +143,7 @@ Type more and with finished type Ctrl-d to write this file out.
 $ touch hello.txt
 ```
 
-- Pagers like 'more' or 'less' allow you to scroll through a file
+- Pagers like 'more' or 'less' allow you to scroll through a file and are more efficient then the cat command
 
 - more loads the entire file at one time.  And this may be slow if the file is large
 
@@ -140,30 +158,108 @@ q key | Quits more
 - Use the 'ls' command to list directoy.  Use 'ls -l' long list option to list additonal information like access mode, ownership, last access time, etc'
 ```
 $ ls -l
+total 0
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Desktop
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Documents
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Downloads
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Music
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Pictures
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Public
+drwxrwxr-x. 3 pslucas pslucas 22 May  4 08:21 someDir
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Templates
+-rw-rw-r--. 1 pslucas pslucas  0 May  4 08:23 textToMove.txt
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Videos
 ```
 
-- Use -a to get hidden directory information.
+- Use -a to get hidden directory and file information.
 ```
 $ ls -a
+.              .bashrc    Downloads      Music     .ssh
+..             .cache     .esd_auth      Pictures  Templates
+.bash_history  .config    .ICEauthority  .pki      textToMove.txt
+.bash_logout   Desktop    .local         Public    Videos
+.bash_profile  Documents  .mozilla       someDir   .viminfo
+```
+Add the -l swithc for a long list with hidden directories and filess
+```
 $ ls -al
+total 32
+drwx------. 17 pslucas pslucas 4096 May  4 08:28 .
+drwxr-xr-x.  4 root    root      36 Mar 23 14:36 ..
+-rw-------.  1 pslucas pslucas 2511 Apr 28 15:46 .bash_history
+-rw-r--r--.  1 pslucas pslucas   18 Jul 26  2021 .bash_logout
+-rw-r--r--.  1 pslucas pslucas  141 Jul 26  2021 .bash_profile
+-rw-r--r--.  1 pslucas pslucas  376 Jul 26  2021 .bashrc
+drwxr-xr-x. 11 pslucas pslucas  250 Apr 27 14:35 .cache
+drwx------. 11 pslucas pslucas  215 Mar 23 14:07 .config
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Desktop
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Documents
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Downloads
+-rw-------.  1 pslucas pslucas   16 Mar 17 10:47 .esd_auth
+-rw-------.  1 pslucas pslucas  632 Mar 23 14:07 .ICEauthority
+drwx------.  3 pslucas pslucas   19 Mar 21 15:17 .local
+drwxr-xr-x.  4 pslucas pslucas   39 Mar 14 16:49 .mozilla
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Music
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Pictures
+drwxrw----.  3 pslucas pslucas   19 Mar 21 15:17 .pki
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Public
+drwxrwxr-x.  3 pslucas pslucas   22 May  4 08:21 someDir
+drwx------.  2 pslucas pslucas   25 Apr  4 13:21 .ssh
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Templates
+-rw-rw-r--.  1 pslucas pslucas    0 May  4 08:23 textToMove.txt
+drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Videos
+-rw-------.  1 pslucas pslucas  902 Mar 18 16:52 .viminfo
 ```
 
 - To see fils in order of creation date
 ```
 $ ls -lt
+total 0
+-rw-rw-r--. 1 pslucas pslucas  0 May  4 08:23 textToMove.txt
+drwxrwxr-x. 3 pslucas pslucas 22 May  4 08:21 someDir
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Desktop
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Documents
+...
 ```
 - To see files create in reverse order date...
 ``` 
 $ ls -ltr
+total 0
+...
+drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Desktop
+drwxrwxr-x. 3 pslucas pslucas 22 May  4 08:21 someDir
+-rw-rw-r--. 1 pslucas pslucas  0 May  4 08:23 textToMove.txt
 ```
 ### Command Line Help
- - The 'whatis' command provides a one line descprtion of a command.
+ - The 'whatis' command provides a one line descprtion of a command.  Note: there may not be informatin to display all linux distros
+ - Example from Raspbian GNU/Linux 10 (buster)
 ```
 $ whatis date
+date (1)             - print or set the system date and time
 ```
-- Use man (manual) pages to get a detailed description of a command along with usage examples.
+- Example from RHEL 8.x:
 ```
-$ man date
+$ whatis date
+date: nothing appropriate.
+```
+- Use man (manual) pages to get a detailed description of a command along with usage examples.  Note: Type 'q' to quit out of man pages.
+```
+$ mand date
+DATE(1)                          User Commands                         DATE(1)
+
+NAME
+       date - print or set the system date and time
+
+SYNOPSIS
+       date [OPTION]... [+FORMAT]
+       date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+
+DESCRIPTION
+       Display the current time in the given FORMAT, or set the system date.
+
+       Mandatory  arguments  to  long  options are mandatory for short options
+       too.
+...
 ```
 - Most commands have buit-in help use the '--help' option with the command
 ```
