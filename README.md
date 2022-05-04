@@ -297,11 +297,11 @@ date: nothing appropriate.
 ```
 
 ### Linux Shells
-- Bourne Shell (sh) developed in 70s for uniux
+- Bourne Shell (sh) developed in 70s for Unix
 - C Shell (csh or tcsh)
 - Korn Shell (ksh)
 - Z shell (zsh)
-- Bourn again Shell (bash)
+- Bourne again Shell (bash)
 - All shells facilate the interaction between the user and the operating system.
 - To check the shell in use type 'echo $SHELL'
 ```
@@ -309,9 +309,9 @@ $ echo $SHELL
 ### Shell Commands
 /bin/bash
 ```
-- Use 'chsh' to change the shell.  
+- Use 'chsh' to change the shell. Note: you need to run this command with super user (root) privelages on RHEL 8.  Debian allows the user to change the shell after supplying their password.
 ```
-$ chsh
+$ sudo chsh
 Password: 
 Changing the login shell for pslucas
 Enter the new value, or press ENTER for the default
@@ -327,50 +327,55 @@ $ dt
 Tue 26 Apr 2022 10:45:18 AM CDT
 ```
 - The 'history' command shows the history of the command you used previously
+```
+$ history
+  661  top
+  662  top help
+  663  ps -ef
+  664  clear
+  665  top
+  666  w
+  667  ptree
+```
 
-- Environent variables $XXXXX
+- Environent variables $XXXXX are named and can be seen with a $<show environment name>
 
-- Show environment settings
+- Show environment settings.  Example from debian..
 ```
 $ env
+SHELL=/bin/bash
+LANGUAGE=en_US.UTF-8
+NO_AT_BRIDGE=1
+PWD=/home/pslucas
+LOGNAME=pslucas
+XDG_SESSION_TYPE=tty
+HOME=/home/pslucas
+LANG=en_US.UTF-8
+...
 ```
-- Set environment variable
+- Set environment variable wwith the export command
 ```
 $ export NAME=paul
-```
-- Add to Path to path environment variable
-```
-$ export $PATH:/somedir
-```
-- Show default shell
-```
-$ echo $SHELL
-```
-- Show prompt settings
-```
-$ echo $PS1
-```
-- Change shell
-```
-$ sudo chsh -s /bin/sh <username>
-
+$ echo $NAME
+paul
 ```
 - Show path
 ```
 $ echo $PATH
 ```
-- Check if location can be found for a program.  If it can't be found, add to the path.
+- Add to Path to path environment variable
 ```
-$ which obs-studio
+$ export $PATH:/somedir
+```
+- Show shell prompt set at login time.
+```
+$ echo $PS1
+[\u@\h \W]\$
 ```
 
-- Create alias
-```
-$ alias up=uptime
-```
 - Prompt shows information like path and user
 ```
-[~]$
+[pslucas@ns02 ~]$
 ```
 -  '~ = present working directory" and '$ = user prompt symbol'
 - Change prompt example - Add date between brackets, then username @ hostname working directory : $ -> [Wed Sep 15]bob@caleston-lp10:~$
@@ -383,3 +388,9 @@ echo 'PS1="[\d]\u@\h:\w$"' >> ~/.profile
 ```
 
 - To make environment variables persistent add them to the '~/.profile or ~/.pam_enviroment' file.
+
+- Check if location can be found for a program.  If it can't be found, add to the path.
+```
+$ which cd
+/usr/bin/cd
+```
