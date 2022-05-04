@@ -54,7 +54,7 @@ $ type mv
 mv is hashed (/bin/mv)
 ```
 ### Basic Linux commands
-- Run 'pwd' to see the current directory
+- TYpe (Print Working Directory) 'pwd' to see the current directory
 ```
 $ pwd
 /home/<some user>
