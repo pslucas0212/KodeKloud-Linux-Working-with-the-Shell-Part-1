@@ -317,6 +317,10 @@ Changing the login shell for pslucas
 Enter the new value, or press ENTER for the default
 	Login Shell [/bin/bash]:
 ```
+- ***Note:*** In the KodeKloud I had to use the following command to change shell
+```
+$ sudo chsh -s /bin/sh bob
+```
 
 ### BASH Features
 - bash will complete commands and directories with auto complietion
