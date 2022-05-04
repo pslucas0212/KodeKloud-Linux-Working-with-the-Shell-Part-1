@@ -15,12 +15,19 @@ On the commnand lin promte, the home directory is denoted by a ~ symbol.  The ~ 
 
 - On the command line you enter a command like the "echo" command.  Commands take arguements.  The echo command takes a string text as an argument
 ```
-$ echo 'Hello World!'
+$ echo 'Hello World'
+Hello World
 ```
 - Some commands do not need an argument like the "uptime" command which shows how long the system has been running
+```
+$ uptime
+ 08:12:02 up 33 days, 18:46,  1 user,  load average: 0.00, 0.00, 0.00
+
+```
 - Some commands take a switch or a flag to modify the command
 ```
-$ echo -n 'Hello world'
+$ echo -n 'Hello World'
+Hello World[pslucas@ns02 ~]$
 ```
 
 So a command might look likce
