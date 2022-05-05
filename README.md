@@ -244,7 +244,7 @@ date: nothing appropriate.
 ```
 - Use man (manual) pages to get a detailed description of a command along with usage examples.  Note: Type 'q' to quit out of man pages.
 ```
-$ mand date
+$ man date
 DATE(1)                          User Commands                         DATE(1)
 
 NAME
