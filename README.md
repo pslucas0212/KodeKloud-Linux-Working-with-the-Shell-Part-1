@@ -331,8 +331,40 @@ $ pwd
 ```
 or use echo $HOME to find the home directory
 ```
+$ echo $HOME
+/home/bob
+```
 
-
+What type of command is git?
+```
+$ type git
+git is /usr/bin/git
+```
+Make a directory called birds
+```
+$ mkdir birds
+```
+Make directoires /fish/salmon in one command
+```
+$ mkdir -p fish/salmon
+```
+Make additional directories
+```
+$ mkdir -p mammals/elephant mammals/monkey birds/eagle reptile/snake reptile/frog amphibian/salamander 
+```
+Move directory frog from reptile to amphiban
+```
+$ mv reptile/frog/ amphibian/
+```
+Rename directory snake to crocodile
+```
+$ mv reptile/snake reptile/crocodile
+```
+Remove reptile
+```
+rm -r reptile/
+```
+ 
 
 ### Linux Shells
 - Bourne Shell (sh) developed in 70s for Unix
