@@ -65,46 +65,53 @@ $ type mv
 mv is hashed (/bin/mv)
 ```
 ### Basic Linux commands
-TYpe (Print Working Directory) 'pwd' to see the current directory
+Type (Present/Print Working Directory) 'pwd' to see the current directory
 ```
 $ pwd
 /home/<some user>
 ```
 
-- run 'ls' - list command to see contents of the directory
+Run 'ls' the list command to see contents of the directory
 ```
 $ ls
 Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos
 ```
-- mkdir (makes a directory).
+Use mkdir the make directory command to make a diretory
 ```
 $ mkdir someDir
 ```
-- You can create parent and children directories at the same time.  Use a '-p' switch with mkdir to make a new dir weith a child directory.
+You can create multiple directories at once.
 ```
-$ mkdir anotherDir/childDir -p
+$ mkdir Asia Europe Africa Ameria
 ```
-- To move a up a directory type 'cd ..'
+You can create parent and children directories at the same time.  Use a '-p' switch with mkdir to make a new dir weith a child directory.
+```
+$ mkdir -p anotherDir/childDir 
+```
+To move a up one directory type 'cd ..'
 ```
 $ cd ..
 ```
-- To return to your home directory, type 'cd ~'
+To return to your home directory, type 'cd ~'
 ```
 [pslucas@ns02 /]$ cd ~
 [pslucas@ns02 ~]$ 
 ```
+Also can use cd with no arguments to retrun the home direcotry.    
 
-- Absolute path is a path that starts from the root directory
+Absolute path is a path that starts from the root directory
 ```
 $ ls /home/pslucas/someDir/
 ```
-- Relative path is 'relative' to the current path
+Relative path is 'relative' to the current path
 ```
-$ ls someDir
+$ pwd
+/home/pslucas
+$ ls someDir/
+childDir
 ```
 
-- you can also use the 'pushd' command to change a directory
-- Use the 'popd' command to go back to the starting directory
+You can also use the 'pushd' command to change a directory.  And then se the 'popd' command to go back to the starting directory that you changed to with the pushd
 ```
 [pslucas@ns02 /]$ pushd /home/pslucas/
 ~ /
@@ -115,48 +122,48 @@ $ ls someDir
 [pslucas@ns02 /]$ 
 ```
 
-- To move a file or directory use the 'mv' move command.  Used two arguements with the mv command: source and target directories
+To move a file or directory use the 'mv' move command.  Used two arguements with the mv command: source and target directories
 ```
 $ mv <source directory> <target directory>
 ```
-- You move files and directories with either absolute or relative paths
+You move files and directories with either absolute or relative paths
 ```
 $ mv textToMove.txt someDir/childDir/
 ```
-- We can use the 'mv' file to rename files or direcories
+We can use the 'mv' file to rename files or direcories
 ```
-$ mv paulfile.txt to bobfile.txt
+$ mv paulfile.txt bobfile.txt
 ```
 
-- Use the 'cp' command to copy files
+Use the 'cp' command to copy files.  The cp command expects two arguements: source and target
 ```
 $ cp /home/bob/bobfilet.txt '/home/paul/'
 ```
 
-- Remove a file or directory with 'rm' remove command.  Note be careful with 'rm -r' as removes through the directory and below recursviley.
+Remove a file or directory with 'rm' remove command.  Note be careful with 'rm -r' as removes through the directory and below recursviley.
 
-- Also you can use -r to recurseviley do other activities.  For example use 'cp -r' recuresively copy files
+Also you can use -r to recursevily do other activities.  For example use 'cp -r' recuresively copy files
 
-- You can read the contents of file with the 'cat' command (concatenate).
+You can read the contents of file with the 'cat' command (concatenate).
 ```
 $ cat bobfile.txt
 ```
 
-- To create a file with content type...
+To create a file with content type...
 ```
 $ cat > newfile.txt
 Type something here
 Type more text here, and when you are finished adding test to the file, type Ctrl-d to write this file out.
 ```
 
-- To create an empty file use the 'touch' command
+To create an empty file use the 'touch' command
 ```
 $ touch hello.txt
 ```
 
-- Pagers like 'more' or 'less' allow you to scroll through a file and are more efficient then the cat command
+Pagers like 'more' or 'less' allow you to scroll through a file and are more efficient then the cat command.  The more and less command lets you scroll and search the test.
 
-- more loads the entire file at one time.  And this may be slow if the file is large
+The 'more' command loads the entire file at once.  And this may be slow if the file is large
 
 more Command | Result
 --------------|-------
@@ -166,7 +173,17 @@ b key | Scrolls backwards one screen at a time
 / key | Search for text in the file
 q key | Quits more
 
-- Use the 'ls' command to list directoy.  Use 'ls -l' long list option to list additonal information like access mode, ownership, last access time, etc'
+less Command | Result
+--------------|-------
+Up Arrow | Scrolls up one line at a time
+Down Arrow | | Scrolls down one line at a time
+Space Bar | Scrolls text one display at a time
+Enter key | Scrolls one line at a time
+b key | Scrolls backwards one screen at a time
+/ key | Search for text in the file
+q key | Quits more
+
+Use the 'ls' command to list directoy.  Use 'ls -l' long list option to list additonal information like access mode, ownership, last access time, etc'
 ```
 $ ls -l
 total 0
@@ -182,7 +199,7 @@ drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Templates
 drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Videos
 ```
 
-- Use -a to get hidden directory and file information.
+Use the -a option to get hidden directory and file information.
 ```
 $ ls -a
 .              .bashrc    Downloads      Music     .ssh
@@ -191,7 +208,7 @@ $ ls -a
 .bash_logout   Desktop    .local         Public    Videos
 .bash_profile  Documents  .mozilla       someDir   .viminfo
 ```
-Add the -l swithc for a long list with hidden directories and filess
+Add the -al option for a long list with hidden directories and filess
 ```
 $ ls -al
 total 32
@@ -222,7 +239,7 @@ drwxr-xr-x.  2 pslucas pslucas    6 Mar 21 15:17 Videos
 -rw-------.  1 pslucas pslucas  902 Mar 18 16:52 .viminfo
 ```
 
-- To see fils in order of creation date
+To see files in the order the files were modified.
 ```
 $ ls -lt
 total 0
@@ -232,7 +249,7 @@ drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Desktop
 drwxr-xr-x. 2 pslucas pslucas  6 Mar 21 15:17 Documents
 ...
 ```
-- To see files create in reverse order date...
+To see files modified in reverse order date...
 ``` 
 $ ls -ltr
 total 0
@@ -242,18 +259,18 @@ drwxrwxr-x. 3 pslucas pslucas 22 May  4 08:21 someDir
 -rw-rw-r--. 1 pslucas pslucas  0 May  4 08:23 textToMove.txt
 ```
 ### Command Line Help
- - The 'whatis' command provides a one line descprtion of a command.  Note: there may not be informatin to display all linux distros
- - Example from Raspbian GNU/Linux 10 (buster)
+The 'whatis' command provides a one line descprtion of a command.  Note: there may not be informatin to display all linux distros
+Example from Raspbian GNU/Linux 10 (buster)
 ```
 $ whatis date
 date (1)             - print or set the system date and time
 ```
-- Example from RHEL 8.x:
+Example from RHEL 8.x:
 ```
 $ whatis date
 date: nothing appropriate.
 ```
-- Use man (manual) pages to get a detailed description of a command along with usage examples.  Note: Type 'q' to quit out of man pages.
+Use man (manual) pages to get a detailed description of a command along with usage examples.  Note: Type 'q' to quit out of man pages.
 ```
 $ man date
 DATE(1)                          User Commands                         DATE(1)
@@ -281,17 +298,17 @@ b key | Scrolls backwards one screen at a time
 / key | Search for text in the file
 q key | Quits more
 
-- Most commands have buit-in help use the '--help' option with the command
+Most commands have buit-in help use the '--help' option with the command
 ```
 $ date --help
 Usage: date [OPTION]... [+FORMAT]
   or:  date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
 Display the current time in the given FORMAT, or set the system date.
 ...
-
 ```
-- Use 'apropos' along with the command as the argument to find all man page with references to the command
-- From Debian..
+
+Use 'apropos' along with the command as the argument to find all man page with references to the command
+An Example From Debian..
 ```
 $ apropos date
 arm-linux-gnueabihf-elfedit (1) - Update the ELF header of ELF files.
@@ -301,11 +318,21 @@ cal (1)              - displays a calendar and the date of Easter
 catman (8)           - create or update the pre-formatted manual pages
 ...
 ```
-- Example from RHEL 8
+An Example from RHEL 8
 ```
 $ apropos date
 date: nothing appropriate.
 ```
+### Lab Example
+What's the home director for bob:
+```
+$ pwd
+/home/bob
+```
+or use echo $HOME to find the home directory
+```
+
+
 
 ### Linux Shells
 - Bourne Shell (sh) developed in 70s for Unix
