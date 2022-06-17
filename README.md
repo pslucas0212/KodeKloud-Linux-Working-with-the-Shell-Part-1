@@ -367,19 +367,21 @@ rm -r reptile/
  
 
 ### Linux Shells
+Shell types in Linux
 - Bourne Shell (sh) developed in 70s for Unix
 - C Shell (csh or tcsh)
 - Korn Shell (ksh)
 - Z shell (zsh)
 - Bourne again Shell (bash)
-- All shells facilate the interaction between the user and the operating system.
-- To check the shell in use type 'echo $SHELL'
+
+All shells facilate the interaction between the user and the operating system.   
+To check the shell in use type 'echo $SHELL'
 ```
 $ echo $SHELL
 ### Shell Commands
 /bin/bash
 ```
-- Use 'chsh' to change the shell. Note: you need to run this command with super user (root) privelages on RHEL 8.  Debian allows the user to change the shell after supplying their password.
+Use 'chsh' to change the shell. Note: you need to run this command with super user (root) privelages on RHEL 8.  Debian allows the user to change the shell after supplying their password.
 ```
 $ sudo chsh
 Password: 
@@ -387,20 +389,20 @@ Changing the login shell for pslucas
 Enter the new value, or press ENTER for the default
 	Login Shell [/bin/bash]:
 ```
-- ***Note:*** In the KodeKloud I had to use the following command to change shell
+***Note:*** In the KodeKloud I had to use the following command to change shell
 ```
 $ sudo chsh -s /bin/sh bob
 ```
 
 ### BASH Features
-- bash will complete commands and directories with auto complietion
-- We can set short cuts with 'alias' command
+The bash shell supports autocomplete of commands, directories and file names. Use the tab key for autocompleteion.      
+In the bash shell we can set short cuts with 'alias' command
 ```
 $ alias dt=date
 $ dt
 Tue 26 Apr 2022 10:45:18 AM CDT
 ```
-- The 'history' command shows the history of the command you used previously
+The 'history' command shows the history of the command you used previously
 ```
 $ history
   661  top
@@ -412,9 +414,9 @@ $ history
   667  ptree
 ```
 
-- Environent variables $XXXXX are named and can be seen with a $<show environment name>
+Environent variables $XXXXX are named and can be seen with a $echo <environment name>.  Variables are used to store information like shell type, home dir, search path, etc.
 
-- Show environment settings.  Example from debian..
+Show environment settings.  Example from debian..
 ```
 $ env
 SHELL=/bin/bash
@@ -427,47 +429,98 @@ HOME=/home/pslucas
 LANG=en_US.UTF-8
 ...
 ```
-- Set environment variable wwith the export command
+Set environment variable wwith the export command
 ```
 $ export NAME=paul
 $ echo $NAME
 paul
 ```
-- Show path
+Show path
 ```
 $ echo $PATH
 ```
-- Add to Path to path environment variable
+Add to Path to path environment variable
 ```
 $ export $PATH:/somedir
 ```
-- Show shell prompt set at login time.
+The path environment variable provides a list of directories to searh in for a command.  If the a driectory is not liseted in the the path, command will not execute or be found.  You can the 'which' command to find the location of a command.
+```
+$ which obs-studio
+obs-studion: command not found
+```
+Add path for obs-studion application
+```
+$ export PATH=$PATH:/opt/obs/bin
+$ which obs-studio
+/opt/obs/bin/obs-studio
+```
+	
+Show shell prompt set at login time.
 ```
 $ echo $PS1
 [\u@\h \W]\$
 ```
 
-- Prompt shows information like path and user
+### Customize the bash prompt    
+Prompt shows information like path and user
 ```
 [pslucas@ns02 ~]$
 ```
--  '~ = present working directory" and '$ = user prompt symbol'
-- Change prompt example - Add date between brackets, then username @ hostname working directory : $ -> [Wed Sep 15]bob@caleston-lp10:~$
+What the shell prompt means... '~ = present working directory and '$ = user prompt symbol'
+Change prompt example - Add date between brackets, then username @ hostname working directory : $ -> [Wed Sep 15]bob@caleston-lp10:~$   
+PS1 is the most common varialbe used to creat the user prompt.
 ```
 $ PS1='[\d]\u@\h:\w$'
 ```
-- Make it permanent in ~/.profile
+Make it permanent in ~/.profile
 ```
 echo 'PS1="[\d]\u@\h:\w$"' >> ~/.profile
 ```
-- or add the following to .profile
+or add the following to .profile
 ```
 PS1="[\d]\u@\h:\w$"
 ```
-- To make environment variables persistent add them to the '~/.profile (debian) or ~/.pam_enviroment' or ~/.bash_profile (Red Hat) file.
+To make environment variables persistent add them to the '~/.profile (debian) or ~/.pam_enviroment' or ~/.bash_profile (Red Hat) file.
 
-- Check if location can be found for a program.  If it can't be found, add to the path.
+Check if location can be found for a program.  If it can't be found, add to the path.
 ```
 $ which cd
 /usr/bin/cd
+```
+### Lab Example: Linux bash prompt
+What is bob's default shell?
+```
+$ echo $SHELL
+/bin/bash
+```
+Change bob's shell to the bourne shell
+```
+$ sudo chsh -s /bin/sh bob
+```
+or ...
+```
+$ sudo chsh
+[sudo] password for bob: 
+Changing the login shell for root
+Enter the new value, or press ENTER for the default
+        Login Shell [/bin/bash]: /bin/sh
+```
+What's the value of the variable TERM
+```
+$ echo $TERM
+xterm-256color
+```
+Make a new environment varialbe PROJECT=MERCURY and persist to the ~/.profile file
+```
+$ export PROJECT=MERCURY
+$ echo $PROJECT
+MERCURY
+$ echo PROJECT=MERCURY >> ~/.profile
+```
+Make an alias up for uptime and persist the change to the ~/.profile file
+```
+$ alias up=uptime
+$ up
+ 21:13:05 up 16 min,  0 users,  load average: 4.47, 5.59, 5.36
+$ echo alias up=uptime >> ~/.profile 
 ```
