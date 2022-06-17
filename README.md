@@ -4,40 +4,51 @@
 
 
 ### Linux Command line
-The Linux shell is a prorgam interface between the user and computer.  When you login you are taken to a computer generated directory known as the home directory.  This is users home folder or directory which is located under /home:
+The Linux command line is commonly known as the linux shell.  The Linux shell is a prorgam interface between the user and computer.  You use text based commands to interact with the operating system.  When you login you are taken to a computer generated directory known as the home directory.  This is users home folder or directory which is located under /home.  /home is a user generated folder.  The user home directory is generated from the user login id and is unique to each user.  You can store your personal data in the home directory.  Like a dedicate locker where you can read, write and delete personal data.  No other user has access to your home directory.
 ```
 /home/<user name>
 ```
+```
+$ pwd
+/home/pslucas
+```
+
 On the commnand lin promte, the home directory is denoted by a ~ symbol.  The ~ represents the home directory
 ```
 [pslucas@ns02 ~]$
 ```
 
-- On the command line you enter a command like the "echo" command.  Commands take arguements.  The echo command takes a string text as an argument
+When you interact with the shell you type in a command.  On the command line you enter a command like the "echo" command.  
+```
+$ echo
+
+
+```
+You saw nothing printed becuase you didn't enter an argument with ehco command.  Commands take arguements.  The echo command takes a string text as an argument
 ```
 $ echo 'Hello World'
 Hello World
 ```
-- Some commands do not need an argument like the "uptime" command which shows how long the system has been running
+Some commands do not need an argument like the "uptime" command which shows how long the system has been running
 ```
 $ uptime
  08:12:02 up 33 days, 18:46,  1 user,  load average: 0.00, 0.00, 0.00
 
 ```
-- Some commands take a switch or a flag to modify the command
+Some commands take a switch or a flag to modify the command.  -n with echo does not print a new line.
 ```
 $ echo -n 'Hello World'
 Hello World[pslucas@ns02 ~]$
 ```
 
-So a command might look likce
+A command might looks like
 ```
-$ <command> <argument> -<option>
+$ <command> <options> <arguments>
 ```
 
-- Commands are categorized as two types: internal or build in commands (about 35) and external commands that rely on binary progams or scripts which are located in files.  Some come installed with the systems and others are installed by the enduser.
+Commands are categorized as two types: internal or built in commands (about 35) and external commands that rely on binary progams or scripts which are located in files.  Some external commands are installed with the systems and others are installed by the enduser.
 
-- 'cd' - change direcotry is an example of a built in command
+'cd' - change direcotry is an example of a built in command
 
 Internal command examples | What it does
 -----------------|-------------
@@ -46,7 +57,7 @@ mkdir | make a directory
 pwd | print working directory
 
 
-- 'type' command to determine if the command is internal built-in or external
+'type' command is used determine if the command is internal built-in command or an external command
 ```
 $ type echo
 echo is a shell buit-in
@@ -54,7 +65,7 @@ $ type mv
 mv is hashed (/bin/mv)
 ```
 ### Basic Linux commands
-- TYpe (Print Working Directory) 'pwd' to see the current directory
+TYpe (Print Working Directory) 'pwd' to see the current directory
 ```
 $ pwd
 /home/<some user>
