@@ -524,3 +524,12 @@ $ up
  21:13:05 up 16 min,  0 users,  load average: 4.47, 5.59, 5.36
 $ echo alias up=uptime >> ~/.profile 
 ```
+Make bob's shell prompot look lik this:  [Wed Apr 22]bob@caleston-lp10:~$
+```
+$ PS1="[\d]\u@\h:\w$ "
+```
+Persist the change
+```
+$ echo 'PS1="[\d]\u@\h:\w$ "' >> ~/.profil
+```
+	
